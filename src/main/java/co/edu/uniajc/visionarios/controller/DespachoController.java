@@ -45,6 +45,20 @@ public class DespachoController {
     }
   }
 
+  @PutMapping("/ActualizarEstado")
+  public ResponseEntity<?> modificarEstadoDespacho(
+    @PathVariable Long id,
+    @RequestBody DespachoModel despachoModel,
+    @PathVariable String estado) {
+
+    try {
+      DespachoModel despachoActualizado = despachoService.actualizarEstadoDespacho(id, despachoModel, estado);
+      return ResponseEntity.ok(despachoActualizado);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(404).body(e.getMessage());  
+    }
+  }
+
   @GetMapping("/consultar")
   public ResponseEntity<?> consultarDespacho() {
     try {

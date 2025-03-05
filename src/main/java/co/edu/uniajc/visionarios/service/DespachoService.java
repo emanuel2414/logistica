@@ -43,6 +43,19 @@ public class DespachoService {
     });
   }
 
+  public DespachoModel actualizarEstadoDespacho(Long id, DespachoModel despachoModel, String estado) {
+    return despachoRepository.findById(id).map(despacho -> {
+      if(despacho.getEstado().equals("En preparacion")){
+       despacho.setEstado(estado);
+        return despachoRepository.save(despacho);
+      }else{
+        throw new RuntimeException("El despacho no se puede actualizar porque su estado esta: " + despacho.getEstado());
+      }
+    }).orElseThrow(() -> {
+        return new RuntimeException("Despacho no encontrado con id: " + id);
+    });
+  }
+
   public List<DespachoModel> consultar(){
     return despachoRepository.findAll();
   }
