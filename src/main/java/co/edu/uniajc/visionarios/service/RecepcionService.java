@@ -14,8 +14,8 @@ public class RecepcionService {
     @Autowired
     private RecepcionRepository recepcionRepository;
 
-    @Autowired
-    private EmailService emailService; // Servicio para enviar correos
+    //@Autowired
+    //private EmailService emailService; // Servicio para enviar correos
 
     @Transactional
     public RecepcionModel crearRecepcion(RecepcionModel recepcion) {
@@ -86,7 +86,7 @@ public class RecepcionService {
         recepcionRepository.save(recepcion); // Guardar historial
         
         // Notificar
-        emailService.notificarEliminacionRecepcion(recepcion, usuario, motivo);
+        //emailService.notificarEliminacionRecepcion(recepcion, usuario, motivo);
         
         recepcionRepository.delete(recepcion);
     }
@@ -114,7 +114,7 @@ public class RecepcionService {
         
         // Actualizar inventario y notificar
         actualizarInventario(recepcion);
-        emailService.notificarConfirmacionRecepcion(recepcion);
+        //emailService.notificarConfirmacionRecepcion(recepcion);
         
         return recepcionRepository.save(recepcion);
     }
