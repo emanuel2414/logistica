@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-//Emanuel Barbosa
+//Emanuel
 @Builder
 @Data
 @NoArgsConstructor
