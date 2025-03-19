@@ -1,7 +1,5 @@
 package co.edu.uniajc.visionarios.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "proveedor")
-
 public class ProveedorModel {
     
     @Id

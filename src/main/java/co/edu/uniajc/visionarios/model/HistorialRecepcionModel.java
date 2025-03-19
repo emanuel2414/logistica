@@ -1,7 +1,5 @@
 package co.edu.uniajc.visionarios.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -12,9 +10,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "historial_recepcion")
-
-
 @Table(name = "historial_recepcion")
 public class HistorialRecepcionModel {
     
