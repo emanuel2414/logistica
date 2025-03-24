@@ -42,7 +42,7 @@ public class DespachoService {
         return new RuntimeException("Despacho no encontrado con id: " + id);
     });
   }
-
+//Actualización despacho
   public DespachoModel actualizarEstadoDespacho(Long id, DespachoModel despachoModel, String estado) {
     return despachoRepository.findById(id).map(despacho -> {
       if(despacho.getEstado().equals("En preparacion")){
