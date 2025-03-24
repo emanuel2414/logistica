@@ -1,7 +1,5 @@
 package co.edu.uniajc.visionarios.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;

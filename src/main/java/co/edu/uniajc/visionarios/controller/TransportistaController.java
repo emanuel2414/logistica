@@ -66,6 +66,18 @@ public class TransportistaController {
     }
   }
 
+  @GetMapping("/razonsocial")
+  public ResponseEntity<?> consultarRazonSocial(
+    @RequestParam(name = "razonSocial")
+    String razonSocial) {
+    try {
+      List<TransportistaModel> transportista = transportistaService.consultarRazonSocial(razonSocial);
+      return ResponseEntity.ok(transportista);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(400).body(e.getMessage());
+    }
+  }
+
   @DeleteMapping(path = "/eliminar")
   public ResponseEntity<?> eliminarTransportista(
     @RequestParam(name = "id") 

@@ -10,4 +10,5 @@ import co.edu.uniajc.visionarios.model.TransportistaModel;
 @Repository
 public interface TransportistaRepository extends JpaRepository<TransportistaModel, Long> {
   List<TransportistaModel> findByEstado(String estado);
+  List<TransportistaModel> findByRazonSocial(String razonSocial);
 }
