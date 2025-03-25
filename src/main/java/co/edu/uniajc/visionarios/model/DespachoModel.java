@@ -43,6 +43,4 @@ public class DespachoModel {
   @OneToMany(mappedBy = "despacho", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<ProductoDespachoModel> productos;
 
-  //Eres como un dia de escuela. Sin clase, sin estido!.
-  //No se
 }
