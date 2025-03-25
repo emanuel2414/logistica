@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name="transportistadespacho")
-//Emanuel
+//Emanuel Barbosa
 public class TransportistaDespachoModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
