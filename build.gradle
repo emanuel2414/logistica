@@ -57,7 +57,7 @@ sonar {
     property "sonar.projectKey", "emanuel2414_logistica"
     property "sonar.organization", "emanuel2414"
     property "sonar.host.url", "https://sonarcloud.io"
-	  property "sonar.token", "020693cebfc5b606639b08652e447da0402cb6b5"
+	property "sonar.token", "020693cebfc5b606639b08652e447da0402cb6b5"
     property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
   }
 }
