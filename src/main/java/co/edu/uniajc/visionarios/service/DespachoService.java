@@ -12,8 +12,12 @@ import co.edu.uniajc.visionarios.repository.DespachoRepository;
 @Service
 public class DespachoService {
 
-  @Autowired
   private DespachoRepository despachoRepository;
+
+  @Autowired
+  public DespachoService(DespachoRepository repository) {
+    this.repository = repository;
+  }
 
   public DespachoModel guardar(DespachoModel despachoModel){
 
@@ -73,5 +77,13 @@ public class DespachoService {
     }
 
     despachoRepository.deleteById(id);
+  }
+
+  // Método para marcar una orden como urgente
+  public OrdenDespacho marcarComoUrgente(Long id) {
+    return repository.findById(id).map(orden -> {
+        orden.setUrgente(true);
+        return repository.save(orden);
+    }).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
   }
 }
