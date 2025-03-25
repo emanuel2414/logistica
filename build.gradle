@@ -3,7 +3,7 @@ plugins {
 	id 'jacoco'
 	id 'org.springframework.boot' version '3.4.4'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id "org.sonarqube" version "6.0.1.5171"
+	id "org.sonarqube" version "6.0.1.5171" 
 } 
 
 group = 'com.example'
@@ -11,7 +11,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
@@ -57,7 +57,7 @@ sonar {
     property "sonar.projectKey", "emanuel2414_logistica"
     property "sonar.organization", "emanuel2414"
     property "sonar.host.url", "https://sonarcloud.io"
-	property "sonar.token", "020693cebfc5b606639b08652e447da0402cb6b5"
+	  property "sonar.token", "020693cebfc5b606639b08652e447da0402cb6b5"
     property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
   }
 }
