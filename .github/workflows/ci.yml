@@ -32,6 +32,9 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission to Gradlew
         run: chmod +x gradlew
+
+      - name: Build and run tests with coverage
+        run: ./gradlew clean test jacocoTestReport
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
