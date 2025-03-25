@@ -2,7 +2,7 @@ package co.edu.uniajc.visionarios.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+//laura pinzon
 import java.util.List;
 
 @Builder
