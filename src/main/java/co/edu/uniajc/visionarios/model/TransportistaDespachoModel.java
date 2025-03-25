@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name="transportistadespacho")
+//Emanuel Barbosa
 public class TransportistaDespachoModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
