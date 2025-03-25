@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de Recepción</title>
+</head>
+<body>
+    <h1>Lista de Reportes</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Proveedor</th>
+            <th>Fecha y Hora</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+        </tr>
+        <tr th:each="reporte : ${reportes}">
+            <td th:text="${reporte.id}"></td>
+            <td th:text="${reporte.codigoReporte}"></td>
+            <td th:text="${reporte.proveedor}"></td>
+            <td th:text="${reporte.fechaHoraRecepcion}"></td>
+            <td th:text="${reporte.producto}"></td>
+            <td th:text="${reporte.cantidad}"></td>
+            <td th:text="${reporte.estado}"></td>
+        </tr>
+    </table>
+</body>
+</html>

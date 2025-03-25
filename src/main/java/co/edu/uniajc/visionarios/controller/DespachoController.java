@@ -24,8 +24,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/despacho_productos")
 public class DespachoController {
 
-  @Autowired
   private DespachoService despachoService;
+
+  @Autowired
+  public DespachoController(DespachoService despachoService) {
+    this.despachoService = despachoService;
+  }
 
   @PostMapping(path = "/crear")
   public DespachoModel crearDespacho(@RequestBody DespachoModel despachoModel){
@@ -93,5 +97,11 @@ public class DespachoController {
     } catch (RuntimeException e) {
       return ResponseEntity.status(400).body(e.getMessage());
     }
+  }
+
+  // Endpoint para marcar una orden como urgente
+  @PutMapping("/{id}/urgente")
+  public ResponseEntity<?> marcarComoUrgente(@PathVariable Long id) {
+      return ResponseEntity.ok(despachoService.marcarComoUrgente(id));
   }
 }

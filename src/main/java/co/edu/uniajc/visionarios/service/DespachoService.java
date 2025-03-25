@@ -12,8 +12,12 @@ import co.edu.uniajc.visionarios.repository.DespachoRepository;
 @Service
 public class DespachoService {
 
-  @Autowired
   private DespachoRepository despachoRepository;
+
+  @Autowired
+  public DespachoService(DespachoRepository despachoRepository) {
+    this.despachoRepository = despachoRepository;
+  }
 
   public DespachoModel guardar(DespachoModel despachoModel){
 
@@ -42,7 +46,7 @@ public class DespachoService {
         return new RuntimeException("Despacho no encontrado con id: " + id);
     });
   }
-
+//Actualización despacho
   public DespachoModel actualizarEstadoDespacho(Long id, DespachoModel despachoModel, String estado) {
     return despachoRepository.findById(id).map(despacho -> {
       if(despacho.getEstado().equals("En preparacion")){
@@ -73,5 +77,13 @@ public class DespachoService {
     }
 
     despachoRepository.deleteById(id);
+  }
+
+  // Método para marcar una orden como urgente
+  public DespachoModel marcarComoUrgente(Long id) {
+    return despachoRepository.findById(id).map(orden -> {
+        orden.setUrgente(true);
+        return despachoRepository.save(orden);
+    }).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
   }
 }
