@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-
+//Emanuel ....
 @Builder
 @Data
 @NoArgsConstructor
@@ -39,4 +39,7 @@ public class DespachoModel {
   // Relación con productos del despacho (1:N)
   @OneToMany(mappedBy = "despacho", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<ProductoDespachoModel> productos;
+
+  //Eres como un dia de escuela. Sin clase, sin estido!.
+  //No se
 }
