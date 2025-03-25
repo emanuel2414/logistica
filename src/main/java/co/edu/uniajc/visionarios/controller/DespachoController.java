@@ -27,8 +27,8 @@ public class DespachoController {
   private DespachoService despachoService;
 
   @Autowired
-  public DespachoController(DespachoService service) {
-    this.service = service;
+  public DespachoController(DespachoService despachoService) {
+    this.despachoService = despachoService;
   }
 
   @PostMapping(path = "/crear")
@@ -101,7 +101,7 @@ public class DespachoController {
 
   // Endpoint para marcar una orden como urgente
   @PutMapping("/{id}/urgente")
-  public ResponseEntity<OrdenDespacho> marcarComoUrgente(@PathVariable Long id) {
-      return ResponseEntity.ok(service.marcarComoUrgente(id));
+  public ResponseEntity<?> marcarComoUrgente(@PathVariable Long id) {
+      return ResponseEntity.ok(despachoService.marcarComoUrgente(id));
   }
 }

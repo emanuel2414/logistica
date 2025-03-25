@@ -15,8 +15,8 @@ public class DespachoService {
   private DespachoRepository despachoRepository;
 
   @Autowired
-  public DespachoService(DespachoRepository repository) {
-    this.repository = repository;
+  public DespachoService(DespachoRepository despachoRepository) {
+    this.despachoRepository = despachoRepository;
   }
 
   public DespachoModel guardar(DespachoModel despachoModel){
@@ -80,10 +80,10 @@ public class DespachoService {
   }
 
   // Método para marcar una orden como urgente
-  public OrdenDespacho marcarComoUrgente(Long id) {
-    return repository.findById(id).map(orden -> {
+  public DespachoModel marcarComoUrgente(Long id) {
+    return despachoRepository.findById(id).map(orden -> {
         orden.setUrgente(true);
-        return repository.save(orden);
+        return despachoRepository.save(orden);
     }).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
   }
 }
