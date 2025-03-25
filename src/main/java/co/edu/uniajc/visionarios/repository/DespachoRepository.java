@@ -10,5 +10,5 @@ import co.edu.uniajc.visionarios.model.DespachoModel;
 @Repository
 public interface DespachoRepository extends JpaRepository<DespachoModel, Long> {
   List<DespachoModel> findByEstado(String estado);
-  List<OrdenDespacho> findByUrgenteTrue();
+  List<DespachoModel> findByUrgenteTrue();
 }
