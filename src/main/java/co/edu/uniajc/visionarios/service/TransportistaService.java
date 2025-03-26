@@ -48,6 +48,10 @@ public class TransportistaService {
     return transportistaRepository.findByEstado(estado);
   }
 
+  public List<TransportistaModel> consultarRazonSocial(String razonSocial){
+    return transportistaRepository.findByRazonSocial(razonSocial);
+  }
+
   public void eliminar(Long id){
     TransportistaModel transportistaModel = transportistaRepository.findById(id)
       .orElseThrow(() -> new RuntimeException("Transportista no encontrado con id: " + id));
