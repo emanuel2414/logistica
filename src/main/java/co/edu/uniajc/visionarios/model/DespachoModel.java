@@ -39,4 +39,7 @@ public class DespachoModel {
   // Relación con productos del despacho (1:N)
   @OneToMany(mappedBy = "despacho", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<ProductoDespachoModel> productos;
+
+  //Hola Laura....
+  
 }
