@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 
 @ExtendWith(MockitoExtension.class)
-public class TransportistaTest {
+class TransportistaTest {
 
     @Mock
     private TransportistaRepository transportistaRepository;
