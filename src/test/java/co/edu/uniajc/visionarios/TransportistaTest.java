@@ -6,12 +6,18 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import co.edu.uniajc.visionarios.model.TransportistaModel;
+import co.edu.uniajc.visionarios.repository.TransportistaDespachoRepository;
 import co.edu.uniajc.visionarios.repository.TransportistaRepository;
 import co.edu.uniajc.visionarios.service.TransportistaService;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +26,9 @@ class TransportistaTest {
 
     @Mock
     private TransportistaRepository transportistaRepository;
+
+    @Mock
+    private TransportistaDespachoRepository transportistaDespachoRepository;
 
     @InjectMocks
     private TransportistaService transportistaService;
@@ -40,5 +49,21 @@ class TransportistaTest {
         TransportistaModel resultado = transportistaService.guardar(transportista);
         assertNotNull(resultado);
         assertEquals(1234567L, resultado.getDocumento());
+    }
+
+    @Test
+    void eliminarTransportista(){
+        Long idTransportista = 1L;
+        TransportistaModel transportista = new TransportistaModel();
+        transportista.setDocumento(idTransportista);
+
+        when(transportistaRepository.findById(idTransportista)).thenReturn(Optional.of(transportista));
+        when(transportistaDespachoRepository.existsByTransportista(transportista)).thenReturn(false);
+
+        // WHEN: Llamamos al método eliminar
+        assertDoesNotThrow(() -> transportistaService.eliminar(idTransportista));
+
+        // THEN: Se debe llamar a deleteById
+        verify(transportistaRepository, times(1)).deleteById(idTransportista);
     }
 }
