@@ -33,6 +33,16 @@ jobs:
       - name: Grant execute permission to Gradlew
         run: chmod +x gradlew
 
+        - name: Set H2 Database for Tests
+        run: |
+          echo "spring.datasource.url=jdbc:h2:mem:testdb" >> src/test/resources/application.properties
+          echo "spring.datasource.driver-class-name=org.h2.Driver" >> src/test/resources/application.properties
+          echo "spring.datasource.username=sa" >> src/test/resources/application.properties
+          echo "spring.datasource.password=" >> src/test/resources/application.properties
+          echo "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect" >> src/test/resources/application.properties
+          echo "spring.jpa.hibernate.ddl-auto=update" >> src/test/resources/application.properties
+          echo "spring.jpa.show-sql=true" >> src/test/resources/application.properties
+
       - name: Build and run tests with coverage
         run: ./gradlew clean test jacocoTestReport
       - name: Build and analyze

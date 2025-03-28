@@ -14,7 +14,7 @@ import co.edu.uniajc.visionarios.model.TransportistaModel;
 import jakarta.transaction.Transactional;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) 
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 class TransportistaRepositoryTest {
     @Autowired
     private TransportistaRepository transportistaRepository;
