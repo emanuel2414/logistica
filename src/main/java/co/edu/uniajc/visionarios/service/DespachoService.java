@@ -2,7 +2,6 @@ package co.edu.uniajc.visionarios.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniajc.visionarios.model.DespachoModel;
@@ -14,7 +13,6 @@ public class DespachoService {
 
   private DespachoRepository despachoRepository;
 
-  @Autowired
   public DespachoService(DespachoRepository despachoRepository) {
     this.despachoRepository = despachoRepository;
   }

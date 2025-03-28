@@ -28,6 +28,4 @@ public class TransportistaModel {
 
   @Column(name="tran_estado")
   private String estado;
-
-  //Emanuel
 }
