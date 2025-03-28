@@ -2,7 +2,6 @@ package co.edu.uniajc.visionarios.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +21,11 @@ import io.swagger.v3.oas.annotations.Parameter;
 @RequestMapping("/transportista")
 public class TransportistaController {
 
-  @Autowired
   private TransportistaService transportistaService;
+
+  public TransportistaController(TransportistaService transportistaService) {
+    this.transportistaService = transportistaService;
+  }
 
   @PostMapping(path = "/registrar")
   public TransportistaModel crearTransportista(@RequestBody TransportistaModel transportistaModel){

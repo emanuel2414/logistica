@@ -3,7 +3,6 @@ package co.edu.uniajc.visionarios.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +17,11 @@ import io.swagger.v3.oas.annotations.Parameter;
 @RequestMapping("/transportista_despacho")
 public class TransportistaDespachoController {
 
-  @Autowired
-  private TransportistaDespachoService transportistaDespachoService;
+  private final TransportistaDespachoService transportistaDespachoService;
+
+  public TransportistaDespachoController(TransportistaDespachoService transportistaDespachoService) {
+    this.transportistaDespachoService = transportistaDespachoService;
+  }
 
   @PostMapping("/asignar")
   public ResponseEntity<?> asignarTransportista(
